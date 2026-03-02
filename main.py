@@ -1,4 +1,5 @@
 import pynanovna
+import time
 
 try:
     vna = pynanovna.VNA()
@@ -65,5 +66,7 @@ vna.calibration_step("through")
 
 vna.calibrate()
 
-data0, data1, freq = vna.sweep()
-print("Single sweep done:", data0[0])
+while True:
+    data0, data1, freq = vna.sweep()
+    print("Single sweep done:", data0[0])
+    time.sleep(1)

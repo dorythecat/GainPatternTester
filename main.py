@@ -23,7 +23,7 @@ if not ans.lower().startswith("n"):
         exit(1)
     vna.load_calibration("./latest.cal")
 else:
-    print("""
+    input("""
     Calibrate open.
     Please connect the open standard to port 1 of the NanoVNA.
     
@@ -31,28 +31,25 @@ else:
     
     Press enter when you are ready to continue."
     """)
-    input()
     vna.calibration_step("open")
 
-    print("""
+    input("""
     Calibrate short.
     Please connect the short standard to port 1 of the NanoVNA.
     
     Press enter when you are ready to continue.
     """)
-    input()
     vna.calibration_step("short") #  The calibration is done in several steps as usual.
 
-    print("""
+    input("""
     Calibrate load.
     Please connect the "load" standard to port 1 of the NanoVNA.
     
     Press enter when you are ready to continue.
     """)
-    input()
     vna.calibration_step("load")
 
-    print("""
+    input("""
     Calibrate isolation
     Please connect the load standard to port 2 of the NanoVNA.
     
@@ -60,16 +57,14 @@ else:
     
     Press enter when you are ready to continue."
     """)
-    input()
     vna.calibration_step("isolation")
 
-    print("""
+    input("""
     Calibrate through.
     Please connect the "through" standard between port 1 and port 2 of the NanoVNA.
     
     Press enter when you are ready to continue.
     """)
-    input()
     vna.calibration_step("through")
 
     vna.calibrate()

@@ -11,7 +11,7 @@ print(vna.info())
 
 test_freq = float(input("What frequency should we test? (MHz) ")) * 1000000
 
-vna.set_sweep(test_freq, test_freq, 101)
+vna.set_sweep(test_freq, test_freq + 1, 2)
 
 # Calibration
 print("""
@@ -62,6 +62,8 @@ Press enter when you are ready to continue.
 """)
 input()
 vna.calibration_step("through")
+
+vna.calibrate()
 
 data0, data1, freq = vna.sweep()
 print("Single sweep done:", data0[0])
